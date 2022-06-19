@@ -1,15 +1,18 @@
 import React from 'react';
 import { FilterByCloudProvider } from '../FilterItem/provider';
-import { FilterByCloudService } from '../FilterItem/services';
 
 import './index.css';
 
-const FilterContainer = ({ data, setData }) => {
+const FilterContainer = ({ data, setData, filteredData, setFilteredData }) => {
   return (
     <div className='filter-container'>
-      <h3>Filter </h3>
-      <FilterByCloudProvider data={data} setData={setData} />
-      {/* <FilterByCloudService data={data} /> */}
+      <h3>Filter By:</h3>
+      <FilterByCloudProvider
+        data={data}
+        setData={setData}
+        filteredData={filteredData}
+        setFilteredData={setFilteredData}
+      />
     </div>
   );
 };

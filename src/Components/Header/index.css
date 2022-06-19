@@ -6,10 +6,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   margin-bottom: 3rem;
+  font-weight: bold;
 }
 
 .app-logo {
   width: 15%;
   height: 15%;
   float: left;
+}
+
+.heading-text {
+  margin-top: 5%;
+  width: 60%;
+  text-align: 'center' 
 }

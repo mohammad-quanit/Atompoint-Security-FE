@@ -4,13 +4,14 @@ import { Form, Select } from 'antd';
 import { addKeysForColumns } from '../../Utils';
 const { Option } = Select;
 
-export const FilterByCloudProvider = ({ data, setData }) => {
+export const FilterByCloudProvider = ({ data, setData, filteredData, setFilteredData }) => {
   const handleChange = async (value) => {
-    const filteredData = data.filter(({ cloud }) => value.includes(cloud));
-    console.log(filteredData);
-    setData(filteredData);
+    console.log(value)
+    setFilteredData(data.filter(({ cloud }) => value.includes(cloud)))
+    // const filteredData = data.filter(({ cloud }) => value.includes(cloud));
+    // console.log(filteredData);
+    // setData(filteredData);
   };
-
   return (
     <div>
       <Form.Item

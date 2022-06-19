@@ -12,6 +12,7 @@ const Home = ({
   setData,
   selectedRowKeys,
   setSelectedRowKeys,
+  filteredData
 }) => {
   const [searchParams] = useSearchParams();
   const [initLoading, setInitLoading] = React.useState(true);
@@ -56,12 +57,14 @@ const Home = ({
     hideSelectAll: true,
   };
 
+  console.log(data, filteredData)
+
   return (
     <>
       <Table
         size='large'
         loading={initLoading}
-        dataSource={data}
+        dataSource={filteredData?.length ? filteredData : data}
         columns={columns}
         rowSelection={rowSelection}
         expandable={{

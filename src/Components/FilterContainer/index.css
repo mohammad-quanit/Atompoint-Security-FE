@@ -1,5 +1,6 @@
 .filter-container {
-  padding: 1.5rem; 
+  padding: 1.5rem;
+  border-radius: 20px;
   border: 1px solid #e0dddd;
   margin-bottom: 1rem;
 }
