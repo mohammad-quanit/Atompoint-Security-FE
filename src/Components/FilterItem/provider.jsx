@@ -1,16 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { Form, Select } from 'antd';
-import { addKeysForColumns } from '../../Utils';
 const { Option } = Select;
 
-export const FilterByCloudProvider = ({ data, setData, filteredData, setFilteredData }) => {
+export const FilterByCloudProvider = ({ data, setFilteredData }) => {
   const handleChange = async (value) => {
-    console.log(value)
     setFilteredData(data.filter(({ cloud }) => value.includes(cloud)))
-    // const filteredData = data.filter(({ cloud }) => value.includes(cloud));
-    // console.log(filteredData);
-    // setData(filteredData);
   };
   return (
     <div>

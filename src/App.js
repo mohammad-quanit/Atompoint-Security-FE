@@ -18,8 +18,6 @@ function App() {
       <Header title='Cloud Security Checklist' />
       <FilterContainer
         data={data}
-        setData={setData}
-        filteredData={filteredData}
         setFilteredData={setFilteredData}
       />
       <ProgressBar values={[selectedRowKeys.length, total]} />
