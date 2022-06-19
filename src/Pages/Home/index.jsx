@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 
-import { Table } from 'antd';
-import { addKeysForColumns, checklistsApiUrl, columns } from '../../Utils';
+import { message, Table } from 'antd';
+import { addKeysForColumns, checklistApiUrl, columns } from '../../Utils';
 import UnlockChecklistButton from '../../Components/UnlockChecklistButton';
+import { axiosInstance } from '../../Config/axios';
 
 const Home = ({
   setTotal,
@@ -20,7 +20,7 @@ const Home = ({
 
   React.useEffect(() => {
     const getChecklists = async () => {
-      let response = await axios.get(checklistsApiUrl(isUnlocked));
+      let response = await axiosInstance.get(checklistApiUrl(isUnlocked));
       if (response.status == 200) {
         setInitLoading(false);
         const { items, total } = response.data;
@@ -42,15 +42,15 @@ const Home = ({
     onChange: (selectedRowKeys) => setSelectedRowKeys(selectedRowKeys),
     onSelect: async (record, IsSelected, _selectedRows, _nativeEvent) => {
       try {
-        const response = await axios.put(
-          `http://localhost:4000/v1/checklist/update/${record.key}`,
+        const response = await axiosInstance.put(
+          `/checklist/update/${record.key}`,
           { checked: IsSelected }
         );
         if (response.status == 200) {
-          alert('updated');
+          message.success('Updated Succesfully');
         }
       } catch (error) {
-        alert(error);
+        message.error(error);
       }
     },
     hideSelectAll: true,

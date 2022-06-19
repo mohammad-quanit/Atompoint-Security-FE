@@ -1,12 +1,10 @@
 import { Tag } from 'antd';
 
-const count = 4;
-export const checklistsApiUrl = (unlockCheck) => {
-  if (!unlockCheck) return `http://localhost:4000/v1/checklists?count=${count}`;
-  return `http://localhost:4000/v1/checklists`;
+const count = 5;
+export const checklistApiUrl = (unlockCheck) => {
+  if (!unlockCheck) return `/checklists?count=${count}`;
+  return `/checklists`;
 };
-
-export const sendEmailApiUrl = `http://localhost:4000/v1/sendemail`;
 
 export const addKeysForColumns = (data) => {
   return data.map((col) => ({ ...col, key: col.name }));

@@ -1,21 +1,27 @@
 import React from 'react';
-import axios from 'axios';
-import { Button, Form, Input, notification, Spin } from 'antd';
+import { Alert, Button, Form, Input, notification, Space, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
-import { sendEmailApiUrl } from '../../Utils';
+import { axiosInstance } from '../../Config/axios';
+
 
 const UnlocklistForm = ({ setIsModalVisible }) => {
   const [loading, setLoading] = React.useState(false);
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      const response = await axios.post(sendEmailApiUrl, values);
+      const response = await axiosInstance.post('/sendemail', values);
       setLoading(false);
       setIsModalVisible(false);
-      notification.info({
+      notification.open({
         message: `Unlock Checklist Link`,
-        description: response.data,
+        description: (
+          <div>
+            <Button onClick={() => window.open(response.data, '_blank')}>
+              Open email Link
+            </Button>
+          </div>
+        ),
         placement: 'topRight',
       });
     } catch (error) {
