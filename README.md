@@ -1,3 +1,16 @@
+# Atompoint-Security-Frontend
+
+This project was bootstrapped with React v18, Antd UI framework and deployed on firebase hosting here: [LINK](https://atompoint-security-app.web.app/)
+
+Steps to run in your local machine,
+
+1) Clone this repo ```git clone https://github.com/Mohammad-Quanit/Atompoint-Security-FE.git```
+2) Run ```yarn install``` in root directory
+3) Configrue your own firebase hosting if you're intended to deploy along with env variables
+4) For building & deploying this project use cmd ```yarn build``` configured in ```package.json```
+
+<hr />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
